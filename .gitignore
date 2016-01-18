@@ -1,1 +1,2 @@
-./Docker/data/*
+Docker/data/mongo/*
+Docker/data/mysql/*
