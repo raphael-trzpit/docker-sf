@@ -5,7 +5,7 @@ maria-data:
 maria:
     image: mariadb:latest
     ports:
-        - "3306:3306"
+        - 3306
     environment:
         - "MYSQL_ROOT_PASSWORD=root"
         - "MYSQL_USER=user"
@@ -20,34 +20,38 @@ mongo-data:
 mongo:
     image: mongo:latest
     ports:
-        - "27017:27017"
+        - 27017
     volumes_from:
         - mongo-data
+rabbit:
+    image: rabbitmq:management
+    ports:
+        - 15672:15672
 code:
     image: busybox
     volumes:
-        - ./blog:/var/www/
+        - ./PocCurrentSite:/var/www/
 php:
     build: ./Docker/php/
-    dockerfile: Dockerfile
     ports:
-        - "9000:9000"
-    working_dir: "/home/docker"
+        - 9000
+    working_dir: "/var/www"
     volumes:
         - ./Docker/php/php.ini:/usr/local/etc/php/php.ini
     volumes_from:
         - code
     links:
-        - "maria:maria"
-        - "mongo:mongo"
+        - maria
+        - mongo
+        - rabbit
 nginx:
     image: nginx:latest
     ports:
-        - "81:80"
+        - 81:80
     links:
-        - "maria:maria"
-        - "mongo:mongo"
-        - "php:php"
+        - maria
+        - mongo
+        - php
     volumes_from:
         - code
     volumes:
