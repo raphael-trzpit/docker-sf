@@ -18,18 +18,18 @@
   * Currently only a default conf and no vhost. Use path like 127.0.0.1:81/web/app_dev.php
 * MariaDB
   * Login : root/root and user/user
+  * data is shared in data/mysql, change it if you like
   * port is not shared with the host, to share it, add
 ```
 expose:
     - 3306
 ```
-  * data is shared in data/mysql, change it if you like
 * MongoDB
+  * data is shared in data/mongo, change it if you like
   * port is not shared with the host, to share it, add
 ```
 expose:
     - 27017
 ```
-  * data is shared in data/mongo, change it if you like
 * RabbitMQ + management
   * Access with 127.0.0.1:15672, login : guest/guest
