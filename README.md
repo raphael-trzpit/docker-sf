@@ -10,7 +10,7 @@
 
 ## Description
 * A code container
-  * currently share the same directory as this one
+  * share the current directory as web root
   * change the code container volume to change the shared directory (ie: .:/var/www/ => ./src/:/var/www/)
 * A php 5.6 container
   * some basic extensions and composer are installed
