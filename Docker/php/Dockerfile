@@ -19,7 +19,10 @@ RUN apt-get install -y \
   && docker-php-ext-install gd
 
 RUN docker-php-pecl-install uploadprogress
+RUN apt-get install -y libssl-dev
 RUN docker-php-pecl-install mongo
+RUN apt-get update && apt-get install -y libmagickwand-dev libmagickcore-dev
+RUN docker-php-pecl-install imagick
 RUN docker-php-pecl-install xdebug
 
 RUN apt-get install -y zlib1g-dev libicu-dev g++ && \

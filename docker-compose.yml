@@ -4,7 +4,7 @@ maria-data:
         - ./Docker/data/mysql:/var/lib/mysql
 maria:
     image: mariadb:latest
-    ports:
+    expose:
         - 3306
     environment:
         - "MYSQL_ROOT_PASSWORD=root"
@@ -13,27 +13,33 @@ maria:
         - "MYSQL_DATABASE=symfony"
     volumes_from:
         - maria-data
+
 mongo-data:
     image: busybox:latest
     volumes:
         - ./Docker/data/mongo:/data/db
 mongo:
     image: mongo:latest
-    ports:
+    expose:
         - 27017
     volumes_from:
         - mongo-data
+
 rabbit:
     image: rabbitmq:management
+    expose:
+        - 5672
+        - 15672
     ports:
         - 15672:15672
+
 code:
     image: busybox
     volumes:
-        - ./PocCurrentSite:/var/www/
+        - .:/var/www/
 php:
     build: ./Docker/php/
-    ports:
+    expose:
         - 9000
     working_dir: "/var/www"
     volumes:
