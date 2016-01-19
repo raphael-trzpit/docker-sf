@@ -3,7 +3,9 @@
 [docker](https://docs.docker.com/engine/installation/) + [docker compose](https://docs.docker.com/compose/install/)
 ## Usage
 `docker-compose up`
+
 **Connect to the php container to run php command**
+
 `docker exec -t -i rincevent_php bash`
 
 ## Description
