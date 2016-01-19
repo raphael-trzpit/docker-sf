@@ -4,7 +4,7 @@
 ## Usage
 `docker-compose up`
 
-**Connect to the php container to run php command**
+**Connect to the php container to run php commands**
 
 `docker exec -t -i rincevent_php bash`
 
