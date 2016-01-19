@@ -33,6 +33,9 @@ RUN apt-get install -y zlib1g-dev libicu-dev g++ && \
 # Include composer
 RUN apt-get install -y git zlib1g-dev && \
     docker-php-ext-install zip
+RUN curl -sS https://getcomposer.org/installer | php -- \
+      --install-dir=/usr/local/bin \
+      --filename=composer \
 
 WORKDIR /var/www
 CMD ["php-fpm"]

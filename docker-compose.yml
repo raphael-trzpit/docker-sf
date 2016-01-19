@@ -39,6 +39,7 @@ code:
         - .:/var/www/
 php:
     build: ./Docker/php/
+    container_name: rincevent_php
     expose:
         - 9000
     working_dir: "/var/www"
