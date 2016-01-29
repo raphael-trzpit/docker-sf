@@ -8,7 +8,7 @@
 
 `docker exec -t -i rincevent_php bash`
 
-** Fix cache and logs issues **
+**Fix cache and logs issues**
 Run these commandes in the php container (see above to connect), replace DIR with your real directories
 
 ```
