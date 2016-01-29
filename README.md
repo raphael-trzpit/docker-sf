@@ -8,8 +8,8 @@
 
 `docker exec -t -i rincevent_php bash`
 
-* Fix cache and logs issues *
-run these commandes in the php container (see above to connect)
+** Fix cache and logs issues **
+Run these commandes in the php container (see above to connect), replace DIR with your real directories
 
 ```
 setfacl -R -m u:1000:rwX DIR
