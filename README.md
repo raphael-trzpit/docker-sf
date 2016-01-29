@@ -8,6 +8,11 @@
 
 `docker exec -t -i rincevent_php bash`
 
+* Fix cache and logs issues *
+run these commandes in the php container (see above to connect)
+setfacl -R -m u:1000:rwX DIR
+setfacl -dR -m u:1000:rwX DIR
+ 
 ## Description
 * A code container
   * share the current directory as web root
